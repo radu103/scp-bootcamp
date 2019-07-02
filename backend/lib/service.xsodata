@@ -1,0 +1,3 @@
+service namespace "bootcamp.hanadb" {
+	"bootcamp.hanadb::Data.BootcampData" as "BootcampData"; 
+}
