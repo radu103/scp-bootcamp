@@ -1,0 +1,9 @@
+namespace bootcamp.hanadb;
+
+context Data {
+	Entity BootcampData {
+		Key ID : String(36);
+		Text : String(100);
+		Date : UTCTimestamp;
+	}
+};

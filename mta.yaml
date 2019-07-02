@@ -1,0 +1,16 @@
+ID: bootcamp
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: hanadb
+   type: hdb
+   path: hanadb
+   requires:
+    - name: hdi_hanadb
+
+resources:
+ - name: hdi_hanadb
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
