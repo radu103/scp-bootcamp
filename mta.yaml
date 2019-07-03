@@ -1,6 +1,6 @@
 ID: bootcamp
 _schema-version: '2.1'
-version: 0.0.1
+version: 0.0.2
 modules:
   - name: hanadb
     type: hdb
@@ -17,8 +17,36 @@ modules:
     requires:
       - name: hdi_hanadb
       - name: hanadb
+  - name: frontend
+    type: html5
+    path: frontend
+    parameters:
+       disk-quota: 256M
+       memory: 256M
+    build-parameters:
+       builder: grunt
+    requires:
+     - name: uaa_bootcamp
+     - name: dest_bootcamp
+     - name: backend_api
+       group: destinations
+       properties:
+          name: backend-destination
+          url: '~{url}'
+          forwardAuthToken: true
 resources:
   - name: hdi_hanadb
     properties:
       hdi-container-name: '${service-name}'
     type: com.sap.xs.hdi-container
+  - name: uaa_bootcamp
+    parameters:
+       path: ./xs-security.json
+       service-plan: application
+       service: xsuaa
+    type: org.cloudfoundry.managed-service
+  - name: dest_bootcamp
+    parameters:
+       service-plan: lite
+       service: destination
+    type: org.cloudfoundry.managed-service

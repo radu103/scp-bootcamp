@@ -1,0 +1,32 @@
+{
+  "xsappname": "bootcamp",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "normal user"
+    },
+    {
+      "name": "uaa.admin",
+      "description": "full acess user"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "user",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ]
+    },
+    {
+      "name": "admin",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user",
+        "uaa.admin"
+      ]
+    }   
+  ]
+}
