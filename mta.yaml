@@ -1,6 +1,6 @@
 ID: bootcamp
 _schema-version: '2.1'
-version: 0.0.2
+version: 0.0.2	
 modules:
   - name: hanadb
     type: hdb
@@ -50,3 +50,5 @@ resources:
        service-plan: lite
        service: destination
     type: org.cloudfoundry.managed-service
+  - name: postgre-db
+    type: org.cloudfoundry.existing-service

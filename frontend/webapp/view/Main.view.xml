@@ -1,13 +1,31 @@
 <mvc:View 
 	controllerName="bootcamp.frontend.controller.Main" 
 	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:smartList="sap.ui.comp.smartlist"
 	displayBlock="true" 
 	xmlns="sap.m">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
-					<content></content>
+					<content>
+						<smartList:SmartList 
+							id="BootcampData" 
+							entitySet="BootcampData" 
+							header="Bootcamp data"
+							showRowCount="true" 
+							showFullScreenButton="true" 
+							enableAutoBinding="true"
+							selectFields="ID,Text,Date">
+							<smartList:listItemTemplate>
+								<StandardListItem 
+										title="{ID}" 
+										info="{Text}"
+										description="{Date}" />
+							</smartList:listItemTemplate>
+						</smartList:SmartList>
+						
+					</content>
 				</Page>
 			</pages>
 		</App>
