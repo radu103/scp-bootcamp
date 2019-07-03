@@ -8,7 +8,7 @@
       "description": "normal user"
     },
     {
-      "name": "uaa.admin",
+      "name": "uaa.fullaccess",
       "description": "full acess user"
     }
   ],
@@ -25,7 +25,7 @@
       "description": "UAA",
       "scope-references": [
         "uaa.user",
-        "uaa.admin"
+        "uaa.fullaccess"
       ]
     }   
   ]
